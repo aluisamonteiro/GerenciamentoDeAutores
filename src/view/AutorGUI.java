@@ -62,6 +62,9 @@ public class AutorGUI extends JFrame {
         modelo.addColumn("Nome");
         modelo.addColumn("Email");
         modelo.addColumn("Tipo de Escrita");
+        
+        // para adicionar uma linha no modelo é só escrever modelo.addRow()
+        // vai precisar para conseguir preencher a tabela
 
         tabela = new JTable(modelo);
         JScrollPane scrollPane = new JScrollPane(tabela);
