@@ -1,7 +1,14 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import controller.AutorController;
+import model.Autor;
 
 public class AutorGUI extends JFrame {
 	private JTextField txtCodigo, txtNome, txtEmail;
@@ -9,8 +16,13 @@ public class AutorGUI extends JFrame {
     private JButton btnLimpar, btnEnviar;
     private JTable tabela;
     private DefaultTableModel modelo;
+//    declaração da variavel do controller
+    private AutorController autorController;
 
     public AutorGUI() {
+//    	Instância do controller do autor
+    	autorController = new AutorController(new ArrayList<Autor>());
+    	
         setTitle("Cadastro de Autores");
         setSize(500, 400);
         setLayout(null);
@@ -49,10 +61,26 @@ public class AutorGUI extends JFrame {
         add(cbTipoEscrita);
 
         btnLimpar = new JButton("LIMPAR");
+//        funcionalidade para limpar os campos
+        btnLimpar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				autorController.limpar(txtCodigo, txtNome, txtEmail);
+			}
+		});
         btnLimpar.setBounds(50, 170, 100, 30);
         add(btnLimpar);
 
         btnEnviar = new JButton("ENVIAR");
+//        funcionalidade para enviar os dados do formulario
+        btnEnviar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				autorController.adicionarAutor(txtCodigo, txtNome, txtEmail, cbTipoEscrita, modelo, getContentPane());
+			}
+		});
         btnEnviar.setBounds(200, 170, 100, 30);
         add(btnEnviar);
 

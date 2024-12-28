@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Classe que representa um autor no sistema de gerenciamento de autores
  */
