@@ -10,23 +10,27 @@ import controller.LoginController;
 import model.Usuario;
 
 /**
- * Classe responsável pela interface gráfica para login do sistema.
- * Contém campos de texto para login, senha e botões para limpar os campos ou entrar no sistema.
- */
+* Classe responsavel pela interface grafica para login do sistema
+* Contem campos de texto para login, senha e botoes para limpar os campos ou entrar no sistema
+* Inclui integracao com o controlador {@link LoginController} para validacao e manipulacao dos dados
+*/
 public class LoginGUI extends JFrame {
     private JTextField txtLogin;
     private JPasswordField txtSenha;
     private JButton btnEntrar, btnLimpar;
 
-    // Declaração da variável do controller
+    /**
+    * Controlador para validacao do login
+    */
     private LoginController loginController;
 
     /**
-     * Construtor da classe LoginGUI.
-     * Inicializa os componentes da interface gráfica e organiza os elementos na janela.
-     */
+    * Construtor da classe LoginGUI
+    * Inicializa os componentes da interface grafica e organiza os elementos na janela
+    */
     public LoginGUI() {
-        // Instância do controller de login
+        
+        // Instancia do controller de login
         loginController = new LoginController(new ArrayList<Usuario>());
 
         setTitle("Login");
@@ -34,7 +38,7 @@ public class LoginGUI extends JFrame {
         setLayout(null);
         setLocationRelativeTo(null);
 
-        // Configuração do rótulo e campo de login
+        // Configuracao do rotulo e campo de login
         JLabel lblLogin = new JLabel("Login:");
         lblLogin.setBounds(30, 30, 80, 20);
         add(lblLogin);
@@ -43,7 +47,7 @@ public class LoginGUI extends JFrame {
         txtLogin.setBounds(100, 30, 150, 20);
         add(txtLogin);
 
-        // Configuração do rótulo e campo de senha
+        // Configuracao do rotulo e campo de senha
         JLabel lblSenha = new JLabel("Senha:");
         lblSenha.setBounds(30, 70, 80, 20);
         add(lblSenha);
@@ -52,9 +56,13 @@ public class LoginGUI extends JFrame {
         txtSenha.setBounds(100, 70, 150, 20);
         add(txtSenha);
 
-        // Configuração do botão "LIMPAR"
+        // Configuracao do botao "LIMPAR"
         btnLimpar = new JButton("LIMPAR");
-        // Funcionalidade para limpar campos
+        
+        /**
+        * Acao do botao "LIMPAR":
+        * Limpa os campos de login e senha utilizando o metodo do {@link LoginController}
+        */
         btnLimpar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,9 +73,14 @@ public class LoginGUI extends JFrame {
         btnLimpar.setBounds(30, 120, 100, 30);
         add(btnLimpar);
 
-        // Configuração do botão "ENTRAR"
+        // Configuracao do botao "ENTRAR"
         btnEntrar = new JButton("ENTRAR");
-        // Funcionalidade para validar usuário
+        
+        /**
+        * Acao do botao "ENTRAR":
+        * Valida o usuario utilizando o metodo do {@link LoginController}
+        * Exibe mensagens de erro ou sucesso e redireciona para a tela de cadastro {@link AutorGUI}
+        */
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -83,11 +96,16 @@ public class LoginGUI extends JFrame {
         btnEntrar.setBounds(150, 120, 100, 30);
         add(btnEntrar);
 
-        // Configuração básica da janela
+        // Configuracao basica da janela
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
 
+    /**
+    * Metodo principal para executar a interface grafica de login
+    * 
+    * @param args Argumentos da linha de comando
+    */
     public static void main(String[] args) {
         new LoginGUI();
     }
