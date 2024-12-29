@@ -14,6 +14,7 @@ import model.Usuario;
 * Contem campos de texto para login, senha e botoes para limpar os campos ou entrar no sistema
 * Inclui integracao com o controlador {@link LoginController} para validacao e manipulacao dos dados
 */
+@SuppressWarnings("serial")
 public class LoginGUI extends JFrame {
     private JTextField txtLogin;
     private JPasswordField txtSenha;

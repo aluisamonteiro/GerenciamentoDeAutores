@@ -15,8 +15,10 @@ import model.Autor;
 * Inclui campos de texto, um combo box para selecionar o tipo de escrita,
 * botoes para limpar e enviar os dados e uma tabela para exibir os autores cadastrados
 */
+
+@SuppressWarnings("serial")
 public class AutorGUI extends JFrame {
-    private JTextField txtCodigo, txtNome, txtEmail;
+	private JTextField txtCodigo, txtNome, txtEmail;
     private JComboBox<String> cbTipoEscrita;
     private JButton btnLimpar, btnEnviar;
     private JTable tabela;
