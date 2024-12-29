@@ -11,26 +11,29 @@ import controller.AutorController;
 import model.Autor;
 
 /**
- * Classe responsavel pela interface grafica para cadastro de autores
- * Inclui campos de texto, um combo box, botoes para limpar e enviar dados,
- * e uma tabela para exibir os autores cadastrados
- */
+* Classe responsavel pela interface grafica para cadastro de autores
+* Inclui campos de texto, um combo box para selecionar o tipo de escrita,
+* botoes para limpar e enviar os dados e uma tabela para exibir os autores cadastrados
+*/
 public class AutorGUI extends JFrame {
     private JTextField txtCodigo, txtNome, txtEmail;
     private JComboBox<String> cbTipoEscrita;
     private JButton btnLimpar, btnEnviar;
     private JTable tabela;
     private DefaultTableModel modelo;
-    
-    // Declaração da variável do controller
+	
+    /**
+     * Controlador responsavel pelas operacoes relacionadas aos autores.
+     */
     private AutorController autorController;
 
     /**
-     * Construtor da classe AutorGUI.
-     * Inicializa os componentes da interface gráfica e organiza os elementos na janela.
+     * Construtor da classe AutorGUI
+     * Inicializa os componentes da interface grafica, organiza os elementos na janela e configura as acoes dos botoes
      */
     public AutorGUI() {
-        // Instância do controller do autor
+	    
+        // Instancia do controller do autor
         autorController = new AutorController(new ArrayList<Autor>());
     	
         setTitle("Cadastro de Autores");
@@ -38,7 +41,7 @@ public class AutorGUI extends JFrame {
         setLayout(null);
         setLocationRelativeTo(null);
 
-        // Configuração do campo de código
+        // Configuracao do campo de codigo
         JLabel lblCodigo = new JLabel("Código");
         lblCodigo.setBounds(30, 30, 80, 20);
         add(lblCodigo);
@@ -47,7 +50,7 @@ public class AutorGUI extends JFrame {
         txtCodigo.setBounds(100, 30, 150, 20);
         add(txtCodigo);
 
-        // Configuração do campo de nome
+        // Configuracao do campo de nome
         JLabel lblNome = new JLabel("Nome");
         lblNome.setBounds(30, 60, 80, 20);
         add(lblNome);
@@ -56,7 +59,7 @@ public class AutorGUI extends JFrame {
         txtNome.setBounds(100, 60, 150, 20);
         add(txtNome);
 
-        // Configuração do campo de email
+        // Configuracao do campo de email
         JLabel lblEmail = new JLabel("Email");
         lblEmail.setBounds(30, 90, 80, 20);
         add(lblEmail);
@@ -65,7 +68,7 @@ public class AutorGUI extends JFrame {
         txtEmail.setBounds(100, 90, 150, 20);
         add(txtEmail);
 	    
-        // Configuração do tipo de escrita
+        // Configuracao do combo box para tipo de escrita
         JLabel lblTipo = new JLabel("Tipo de Escrita:");
         lblTipo.setBounds(30, 120, 100, 20);
         add(lblTipo);
@@ -74,9 +77,13 @@ public class AutorGUI extends JFrame {
         cbTipoEscrita.setBounds(150, 120, 150, 20);
         add(cbTipoEscrita);
 
-        // Configuração do botão "LIMPAR"
+        // Configuracao do botao "LIMPAR"
         btnLimpar = new JButton("LIMPAR");
-        // Funcionalidade para limpar os campos
+        
+	/**
+        * Acao do botao "LIMPAR":
+        * Limpa os campos de texto e o combo box utilizando o metodo do {@link AutorController}
+        */
         btnLimpar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,9 +93,13 @@ public class AutorGUI extends JFrame {
         btnLimpar.setBounds(50, 170, 100, 30);
         add(btnLimpar);
 
-        // Configuração do botão "ENVIAR"
+        // Configuracao do botao "ENVIAR"
         btnEnviar = new JButton("ENVIAR");
-        // Funcionalidade para enviar os dados do formulario
+        
+	/**
+        * Acao do botao "ENVIAR":
+        * Adiciona um novo autor a lista e a tabela utilizando o metodo do {@link AutorController}
+        */
         btnEnviar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,7 +109,7 @@ public class AutorGUI extends JFrame {
         btnEnviar.setBounds(200, 170, 100, 30);
         add(btnEnviar);
 
-        // Configuração da tabela para exibir os autores cadastrados
+        // Configuracao da tabela para exibir os autores cadastrados
         modelo = new DefaultTableModel();
         modelo.addColumn("Código");
         modelo.addColumn("Nome");
@@ -110,7 +121,7 @@ public class AutorGUI extends JFrame {
         scrollPane.setBounds(30, 220, 400, 120);
         add(scrollPane);
 
-        // Configuração básica da janela
+        // Configuração basica da janela
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
