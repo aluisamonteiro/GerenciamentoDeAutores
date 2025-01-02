@@ -16,9 +16,26 @@ import model.Usuario;
 */
 @SuppressWarnings("serial")
 public class LoginGUI extends JFrame {
+    
+    /**
+     * Campo de texto para o login do usuario
+     */
     private JTextField txtLogin;
+    
+    /**
+     * Campo de texto para a senha do usuario
+     */
     private JPasswordField txtSenha;
-    private JButton btnEntrar, btnLimpar;
+    
+    /**
+     * Botao para realizar o login
+     */
+    private JButton btnEntrar;
+    
+    /**
+     * Botao para limpar os campos de login e senha
+     */
+    private JButton btnLimpar;
 
     /**
     * Controlador para validacao do login
