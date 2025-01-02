@@ -18,14 +18,49 @@ import model.Autor;
 
 @SuppressWarnings("serial")
 public class AutorGUI extends JFrame {
-	private JTextField txtCodigo, txtNome, txtEmail;
-    private JComboBox<String> cbTipoEscrita;
-    private JButton btnLimpar, btnEnviar;
-    private JTable tabela;
-    private DefaultTableModel modelo;
+
+	/**
+	 * Campo de texto para o codigo do autor
+	 */
+	private JTextField txtCodigo;
+	
+	/**
+	 * Campo de texto para o nome do autor
+	 */
+	private JTextField txtNome;
+	
+	/**
+	 * Campo de texto para o email do autor
+	 */
+	private JTextField txtEmail;
+	
+	/**
+	 * ComboBox para selecionar o tipo de escrita do autor
+	 */
+	private JComboBox<String> cbTipoEscrita;
+	
+	/**
+	 * Botao para limpar os campos do formulario
+	 */
+	private JButton btnLimpar;
+	
+	/**
+	 * Botao para enviar os dados do autor
+	 */
+	private JButton btnEnviar;
+	
+	/**
+	 * Modelo da tabela para exibir os autores cadastrados
+	 */
+	private DefaultTableModel modelo;
+	
+	/**
+	 * Tabela para exibir os dados dos autores
+	 */
+	private JTable tabela;
 	
     /**
-     * Controlador responsavel pelas operacoes relacionadas aos autores.
+     * Controlador responsavel pelas operacoes relacionadas aos autores
      */
     private AutorController autorController;
 
